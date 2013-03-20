@@ -1,0 +1,4 @@
+bin: bin/satis   # Where your satis bin is located
+json: satis.json # Where your satis.json is located
+webroot: web     # Where you want to dump index.html and packages.json
+user: ~          # Run script as another user (sudo -u user -i bin/satis build ...)
