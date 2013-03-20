@@ -31,15 +31,12 @@ if (!file_exists($config['webroot'])) {
     $errors[] = 'The webroot directory could not be found.';
 }
 
-if (!is_writable($config['webroot'])) {
-    $errors[] = 'The webroot directory is not writable.';
-}
-
 if (!empty($errors)) {
     echo 'The build cannot be run due to some errors. Please, review them and check your config.yml:'."\n";
     foreach ($errors as $error) {
         echo '- '.$error."\n";
     }
+    exit(-1);
 }
 
 $command = sprintf('%s build %s %s', $config['bin'], $config['json'], $config['webroot']);
