@@ -48,9 +48,10 @@ $process = new Process($command);
 $exitCode = $process->run(function ($type, $buffer) {
     if ('err' === $type) {
         echo 'E';
+        error_log($buffer);
     } else {
         echo '.';
     }
 });
 
-echo "\n\n" . ($exitCode === 0 ? 'Successful rebuild! ☺' : 'Oops! An error occured! ☹') . "\n";
+echo "\n\n" . ($exitCode === 0 ? 'Successful rebuild!' : 'Oops! An error occured!') . "\n";
